@@ -9,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace Businessman
 {
@@ -83,7 +84,8 @@ namespace Businessman
 				Bank();
 				break;
 			case 5:
-				Bank();
+				Console.Clear ();
+				Menu ();
 				break;
 			case 6:
 				settings ();
@@ -110,19 +112,19 @@ namespace Businessman
 			}
 		}
 
-		public static void BuyPoint() //метод покупки точки //ДОПИСАТЬ!
+		public static void BuyPoint() //метод покупки точки 
 		{
+			int point;
 			Console.Clear();
 			Console.WriteLine("{0,50}", "Вы можете купить 5 торговых точек! \n");
-			Console.WriteLine("[1] Хлебный Ларёк - 14000(RUB) Доход - 2000RUB");
-			Console.WriteLine("[2] Продовольственный магазин - 70000(RUB) Доход - 5000RUB ");
-			Console.WriteLine("[3] Зоомагазин - 120000(RUB) Доход - 12000RUB");
-			Console.WriteLine("[4] Универмаг - 500000(RUB) Доход - 20000RUB");
-			Console.WriteLine("[5] Сеть магазинов Восьмёрочка - 1200000(MLRUB) Доход - 35000RUB");
+			Console.WriteLine("[1] Хлебный Ларёк - 14000(RUB) Доход - 2000RUB | Каждые 2000мС");
+			Console.WriteLine("[2] Продовольственный магазин - 70000(RUB) Доход - 3000RUB | Каждые 2050мС");
+			Console.WriteLine("[3] Зоомагазин - 120000(RUB) Доход - 6000RUB | Каждые 2100мС");
+			Console.WriteLine("[4] Универмаг - 500000(RUB) Доход - 12000RUB | Каждые 2150мС");
+			Console.WriteLine("[5] Сеть магазинов Восьмёрочка - 1200000(MLRUB) Доход - 20000RUB | Каждые 2200мС");
 			Console.WriteLine("[0] Выйти обратно в меню \n");
-			int onepoint;
-			Console.WriteLine("Выбор точки: "); onepoint = Convert.ToInt32(Console.ReadLine());
-			switch(onepoint)
+			Console.WriteLine("Выбор точки: "); point = Convert.ToInt32(Console.ReadLine());
+			switch(point)
 			{
 			case 0:
 				Console.WriteLine("\n"+"Вы будете возращены в меню !");
@@ -232,47 +234,54 @@ namespace Businessman
 		{
 			while(true)
 			{
-				Thread.Sleep(1500);
-				balance = balance + 2000;
+				Thread.Sleep(2000);
+				balance = balance + 1000;
 			}
 		}
 		public static void TwoPoint() //метод второй точки
 		{
 			while (true)
 			{
-				Thread.Sleep(1500);
-				balance = balance + 2000;
+				Thread.Sleep(2050);
+				balance = balance + 3000;
 			}
 		}
 		public static void  ThreePoint() //метод третий точки
 		{
 			while (true)
 			{
-				Thread.Sleep(1500);
-				balance = balance + 5000;
+				Thread.Sleep(2100);
+				balance = balance + 6000;
 			}
 		}
 		public static void FourPoint() //метод четвёртой точки
 		{
 			while (true)
 			{
-				Thread.Sleep(1500);
-				balance = balance + 20000;
+				Thread.Sleep(2150);
+				balance = balance + 12000;
 			}
 		}
 		public static void FivePoint() //метод пятой точки
 		{
 			while (true)
 			{
-				Thread.Sleep(1500);
-				balance = balance + 35000;
+				Thread.Sleep(2200);
+				balance = balance + 20000;
 			}
 		}
 		/*Методы для меню*/
 		public static void SalePoint() //метод продажи точки
 		{
-			Console.Clear();
-			Console.WriteLine("Метод продажи точки");
+			string saleok;
+			Console.Clear ();
+			Console.WriteLine("Введите ключ 'ok' для подтверждения продажи точки. " + "\n");
+			Console.Write ("Ваша команда: "); saleok = Console.ReadLine ();
+			if (saleok == "ok" | saleok == "OK" | saleok == "Ok") {
+				
+			} else {
+				Console.WriteLine ("Вы ввели что-то не то.");
+			}
 			Console.WriteLine("Чтобы выйти в меню, нажмите (0)");
 			int exit = 90;
 			Console.Write("Ввод команды: "); exit = Convert.ToInt32(Console.ReadLine());
@@ -363,16 +372,16 @@ namespace Businessman
 		public static void settings(){ //метод настроек
 			Console.Clear();
 			Console.WriteLine("Выберите что именно хотите настроить: " + "\n");
-			Console.WriteLine("{0,50}", "[1]Размер шрифта. " + "\t" + "[2]Цвет шрифта." + "\n");
+			Console.WriteLine("{0,50}", "[1]Цвет шрифта." + "\n");
 			Console.Write("Ввод команды: "); question_int = Convert.ToInt32 (Console.ReadLine());
-			if (question_int == 1) {
+			if (question_int == 2) {
 				
-			} else if (question_int == 2) {
+			} else if (question_int == 1) {
 				
 				Console.WriteLine ("Выберите цвет: " + "\n");
-				Console.WriteLine ("{0,50}", "[1]BLACK " + "\t" + "[2]BLUE" + "\t" + "[3]CYAN" + "\t" + "[4]DarkBlue" + "\n" +  "[5]DarkCyan" + "\t" + "[6]DarkGray" + "\t" +
-					"[7]DarkGreen" + "\t" + "[8]DarkMegenta" + "\t" + "[9]DarkRed" + "\n" + "[10]DarkYellow" + "\t" + "[11]Gray" + "\t" + "[12]Green" + "\t" + "[13]Megenta" + "\t" +
-					"[14]Red" + "\n" + "[15]White" + "\t" + "[16]Yelow" + "\t" + "[17]Yelow" + "\n");
+				Console.WriteLine ("[1]BLACK " + "[2]BLUE " + "[3]CYAN "  + "[4]DarkBlue "  +  "[5]DarkCyan " + "\n" + "[6]DarkGray " +
+					"[7]DarkGreen " + "[8]DarkMegenta " + "[9]DarkRed "  + "[10]DarkYellow " + "\n" + "[11]Gray " + "[12]Green " + "[13]Megenta " +
+					"[14]Red " + "[15]White " + "\n" + "[16]Yelow " + "[17]Yelow " + "\n");
 				Console.Write ("Ваша команда: "); color = Convert.ToInt32 (Console.ReadLine ());
 				switch(color)
 				{
@@ -472,6 +481,12 @@ namespace Businessman
 					Thread.Sleep (1000);
 					Menu ();
 					break;
+				default: 
+					Console.WriteLine ("\n"+"Вы ввели что-то не то!");
+					Thread.Sleep (500);
+					Console.Clear ();
+					settings ();
+					break;
 				}
 			}
 			else {
@@ -489,7 +504,6 @@ namespace Businessman
 			Console.WriteLine ("{0,50}", "Для входа введите ваше имя.");
 			Console.Write ("Ваше имя: ");
 			name = Console.ReadLine ();
-
 		}
 
 	public static void reg2() //метод вопроса о заходе в меню
@@ -513,9 +527,9 @@ namespace Businessman
 					Console.WriteLine ("Вы будете возращены в меню!");
 					Thread.Sleep (1000);
 					Menu ();
-					}
 				}
 			}
 		}
 	}
+}
 
