@@ -2,7 +2,7 @@
  Игра, симулятор бизнессмена в консольном приложение.
  By Valentin_Bragin
 
- ДОПИСАТЬ: сделать продажу точек , настройки.
+ ДОПИСАТЬ: сделать продажу точек.
 */
 
 using System;
@@ -18,6 +18,7 @@ namespace Businessman
 				/*Переменные*/
 		private static int exp = 0; //приватная переменная Exp
 		private static int lvl = 1; //приватная переменная lvl
+		private static string lvlrang = " - Прохожий";
 		private static int balance = 15000; //приватная переменная баланса
 		private static int balance_bank = 0; //приватная переменная баланса в банке
 		public static string name;
@@ -58,7 +59,7 @@ namespace Businessman
 			Console.Clear(); //очистка экрана
 			Console.Write("{0,35}", "Ваш баланс: " + balance);
 			Console.Write("\t" + "Ваш Exp: " + exp);
-			Console.WriteLine("\t" +  "Ваш Lvl: " + lvl + "\n");
+			Console.WriteLine("\t" +  "Ваш Lvl: " + lvl + lvlrang + "\n");
 			Console.WriteLine("Меню управление бизнессом: "); 
 			Console.WriteLine("1. Купить торговую точку");
 			Console.WriteLine("2. Продать торговую точку");
@@ -117,7 +118,7 @@ namespace Businessman
 			int point;
 			Console.Clear();
 			Console.WriteLine("{0,50}", "Вы можете купить 5 торговых точек! \n");
-			Console.WriteLine("[1] Хлебный Ларёк - 14000(RUB) Доход - 2000RUB | Каждые 2000мС");
+			Console.WriteLine("[1] Хлебный Ларёк - 14000(RUB) Доход - 2200RUB | Каждые 2000мС");
 			Console.WriteLine("[2] Продовольственный магазин - 70000(RUB) Доход - 3000RUB | Каждые 2050мС");
 			Console.WriteLine("[3] Зоомагазин - 120000(RUB) Доход - 6000RUB | Каждые 2100мС");
 			Console.WriteLine("[4] Универмаг - 500000(RUB) Доход - 12000RUB | Каждые 2150мС");
@@ -137,6 +138,7 @@ namespace Businessman
 					exp = exp + 120;
 					if (exp == 120) {
 						lvl = lvl + 1;
+						lvlrang = " - Новичёк";
 					}
 					balance = balance - 14000;
 					Console.WriteLine("Вы успешно приобрели торговую точку, под номером [1]");
@@ -158,6 +160,7 @@ namespace Businessman
 					if (exp == 240)
 					{
 						lvl = lvl + 1;
+						lvlrang = " - Вовлёкшийся";
 					}
 					balance = balance - 70000;
 					Console.WriteLine("Вы успешно приобрели торговую точку, под номером [2]\n");
@@ -177,6 +180,7 @@ namespace Businessman
 					if (exp == 360)
 					{
 						lvl = lvl + 1;
+						lvlrang = " - Начинающий ";
 					}
 					balance = balance - 120000;
 					Console.WriteLine("Вы успешно приобрели торговую точку\n");
@@ -196,6 +200,7 @@ namespace Businessman
 					if (exp == 480)
 					{
 						lvl = lvl + 1;
+						lvlrang = " - Бизнессмен";
 					} 
 
 					balance = balance - 500000;
@@ -215,6 +220,7 @@ namespace Businessman
 					exp = exp + 510;
 					if (exp == 2140) {
 						lvl = lvl + 1;
+						lvlrang = " - Авторитет!";
 					}
 					balance = balance - 1200000;
 					Console.WriteLine("Вы успешно приобрели торговую точку\n");
@@ -222,10 +228,14 @@ namespace Businessman
 					Task.Run(() => FivePoint());
 					Menu();
 				}
+				
 				else if (balance < 1200000)
 				{
 					Console.WriteLine("Недостаточно средств");
 				}
+				break;
+			default: 
+				Console.WriteLine ("Вы ввели что-то не то.");
 				break;
 			}
 		}
@@ -235,7 +245,7 @@ namespace Businessman
 			while(true)
 			{
 				Thread.Sleep(2000);
-				balance = balance + 1000;
+				balance = balance + 2200;
 			}
 		}
 		public static void TwoPoint() //метод второй точки
