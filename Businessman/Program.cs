@@ -138,7 +138,7 @@ namespace Businessman
 					exp = exp + 120;
 					if (exp == 120) {
 						lvl = lvl + 1;
-						lvlrang = " - Новичёк";
+						lvlrang = " - Новичок";
 					}
 					balance = balance - 14000;
 					Console.WriteLine("Вы успешно приобрели торговую точку, под номером [1]");
@@ -382,16 +382,126 @@ namespace Businessman
 		public static void settings(){ //метод настроек
 			Console.Clear();
 			Console.WriteLine("Выберите что именно хотите настроить: " + "\n");
-			Console.WriteLine("{0,50}", "[1]Цвет шрифта." + "\n");
+			Console.WriteLine("{0,50}", "[1]Цвет шрифта." + "[2]Цвет фона" + "\n");
 			Console.Write("Ввод команды: "); question_int = Convert.ToInt32 (Console.ReadLine());
 			if (question_int == 2) {
-				
+				Console.WriteLine ("Выберите цвет фона: " + "\n");
+				Console.WriteLine ("[1]BLACK " + "[2]BLUE " + "[3]CYAN "  + "[4]DarkBlue "  +  "[5]DarkCyan " + "\n" + "[6]DarkGray " +
+					"[7]DarkGreen " + "[8]DarkMegenta " + "[9]DarkRed "  + "[10]DarkYellow " + "\n" + "[11]Gray " + "[12]Green " + "[13]Megenta " +
+					"[14]Red " + "[15]White " + "\n" + "[16]Yelow " + "\n");
+				Console.Write ("Ваша команда: "); color = Convert.ToInt32 (Console.ReadLine ());
+				switch(color)
+				{
+				case 1:
+					Console.BackgroundColor = ConsoleColor.Black;
+					Console.WriteLine ("Фон успешно изменён!");
+					Thread.Sleep (1000);
+					Menu ();
+					break;
+				case 2:
+					Console.BackgroundColor = ConsoleColor.Blue;
+					Console.WriteLine ("Фон успешно изменён!");
+					Thread.Sleep (1000);
+					Menu ();
+					break;
+				case 3:
+					Console.BackgroundColor = ConsoleColor.Cyan;
+					Console.WriteLine ("Фон успешно изменён!");
+					Thread.Sleep (1000);
+					Menu ();
+					break;
+				case 4:
+					Console.BackgroundColor = ConsoleColor.DarkBlue;
+					Console.WriteLine ("Фон успешно изменён!");
+					Thread.Sleep (1000);
+					Menu ();
+					break;
+				case 5:
+					Console.BackgroundColor = ConsoleColor.DarkCyan;
+					Console.WriteLine ("Фон успешно изменён!");
+					Thread.Sleep (1000);
+					Menu ();
+					break;
+				case 6:
+					Console.BackgroundColor = ConsoleColor.DarkGray;
+					Console.WriteLine ("ФОН успешно изменён!");
+					Thread.Sleep (1000);
+					Menu ();
+					break;
+				case 7:
+					Console.BackgroundColor = ConsoleColor.DarkGreen;
+					Console.WriteLine ("Фон успешно изменён!");
+					Thread.Sleep (1000);
+					Menu ();
+					break;
+				case 8:
+					Console.BackgroundColor = ConsoleColor.DarkMagenta;
+					Console.WriteLine ("Фон успешно изменён!");
+					Thread.Sleep (1000);
+					Menu ();
+					break;	
+				case 9:
+					Console.BackgroundColor = ConsoleColor.DarkRed;					
+					Console.WriteLine ("Фон успешно изменён!");
+					Thread.Sleep (1000);
+					Menu ();
+					break;
+				case 10:
+					Console.ForegroundColor = ConsoleColor.DarkYellow;
+					Console.WriteLine ("Фон успешно изменён!");
+					Thread.Sleep (1000);
+					Menu ();
+					break;
+				case 11:
+					Console.BackgroundColor = ConsoleColor.Gray;
+					Console.WriteLine ("Фон успешно изменён!");
+					Thread.Sleep (1000);
+					Menu ();
+					break;
+				case 12:
+					Console.BackgroundColor = ConsoleColor.Green;
+					Console.WriteLine ("Фон успешно изменён!");
+					Thread.Sleep (1000);
+					Menu ();
+					break;
+				case 13:
+					Console.BackgroundColor = ConsoleColor.Magenta;
+					Console.WriteLine ("Фон успешно изменён!");
+					Thread.Sleep (1000);
+					Menu ();
+					break;
+				case 14:
+					Console.BackgroundColor = ConsoleColor.Red;
+					Console.WriteLine ("Фон успешно изменён!");
+					Thread.Sleep (1000);
+					Menu ();
+					break;
+				case 15:
+					Console.BackgroundColor = ConsoleColor.White;
+					Console.WriteLine ("Фон успешно изменён!");
+					Thread.Sleep (1000);
+					Menu ();
+					break;
+				case 16:
+					Console.BackgroundColor = ConsoleColor.Yellow;
+					Console.WriteLine ("Фон успешно изменён!");
+					Thread.Sleep (1000);
+					Menu ();
+					break;
+				default: 
+					Console.WriteLine ("\n"+"Вы ввели что-то не то!");
+					Thread.Sleep (500);
+					Console.Clear ();
+					settings ();
+					break;
+				}
+
 			} else if (question_int == 1) {
 				
 				Console.WriteLine ("Выберите цвет: " + "\n");
 				Console.WriteLine ("[1]BLACK " + "[2]BLUE " + "[3]CYAN "  + "[4]DarkBlue "  +  "[5]DarkCyan " + "\n" + "[6]DarkGray " +
 					"[7]DarkGreen " + "[8]DarkMegenta " + "[9]DarkRed "  + "[10]DarkYellow " + "\n" + "[11]Gray " + "[12]Green " + "[13]Megenta " +
-					"[14]Red " + "[15]White " + "\n" + "[16]Yelow " + "[17]Yelow " + "\n");
+					"[14]Red " + "[15]White " + "\n" + "[16]Yelow " + "\n");
 				Console.Write ("Ваша команда: "); color = Convert.ToInt32 (Console.ReadLine ());
 				switch(color)
 				{
@@ -542,4 +652,3 @@ namespace Businessman
 		}
 	}
 }
-
