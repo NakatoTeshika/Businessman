@@ -27,7 +27,7 @@ namespace Businessman
 
 		static void Main(string[] args) //главный метод
 		{
-			string text = "Добро пожаловать в игру Бизнессмен, для продолжения нажмите ENTER. " + "\n";
+			string text = "You are welcome! It is Business game! для продолжения нажмите ENTER. " + "\n";
 			foreach (var e in text) {
 				Thread.Sleep (50);
 				Console.Write (e);
